@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#94278e</color>
+    <color name="colorPrimaryDark">#640d5f</color>
+    <color name="colorAccent">#e6afef</color>
+    <color name="fontColor">#a854b6</color>
+    <color name="btnColor">#8e02a5</color>
+    <color name="pureWhite">#ffffff</color>
+    <color name="solidMenuColor">#94278e</color>
+    <color name="menuTextColor">#e6afef</color>
+    <color name="dialogTopColor">#582a76</color>
+    <color name="dialogBottomColor">#680578</color>
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edtRegisterNome"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:hint="Insira seu nome"
+        android:drawableStart="@drawable/ic_email_24dp"
+        android:drawablePadding="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/fontColor"
+        android:textColorHint="@color/fontColor"
+        android:backgroundTint="@color/fontColor"
+        android:inputType="textEmailAddress" />
+    <EditText
+        android:editable="false"
+        android:id="@+id/datePicker"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtRegisterNome"
+        android:text="Sua data de nascimento "
+        android:drawableLeft="@drawable/ic_calendar_24dp"
+        android:drawablePadding="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/fontColor"
+        android:textColorHint="@color/fontColor"
+        android:backgroundTint="@color/fontColor"
+        android:textSize="19dp"/>
+
+    <EditText
+        android:layout_below="@+id/datePicker"
+        android:id="@+id/edtRegisterEmail"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:hint="Insira seu e-mail"
+        android:drawableStart="@drawable/ic_email_24dp"
+        android:drawablePadding="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/fontColor"
+        android:textColorHint="@color/fontColor"
+        android:backgroundTint="@color/fontColor"
+        android:inputType="textEmailAddress" />
+    <EditText
+        android:id="@+id/edtRegisterSenha"
+        android:layout_below="@+id/edtRegisterEmail"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:hint="Insira sua senha"
+        android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+        android:drawablePadding="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/fontColor"
+        android:textColorHint="@color/fontColor"
+        android:backgroundTint="@color/fontColor"
+        android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/edtConfirmRegisterSenha"
+        android:layout_below="@+id/edtRegisterSenha"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:hint="Confirme sua senha"
+        android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+        android:drawablePadding="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/fontColor"
+        android:textColorHint="@color/fontColor"
+        android:backgroundTint="@color/fontColor"
+        android:inputType="textPassword" />
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:id="@+id/linkGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/edtConfirmRegisterSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/linkAHAccount"
+            android:textColor="@color/fontColor"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Já possui conta?"/>
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="268dp"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/btnColor"
+            android:textColor="@color/pureWhite"
+            android:background="@drawable/button_round"
+            android:text="INSCREVER-SE"
+            android:layout_marginBottom="20dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
