@@ -10,4 +10,12 @@
     <color name="menuTextColor">#e6afef</color>
     <color name="dialogTopColor">#582a76</color>
     <color name="dialogBottomColor">#680578</color>
+
+    <!--Slide colors-->
+    <color name="slideColor1">#7309537E</color>
+    <color name="slideColor2">#73221D45</color>
+    <color name="slideColor3">#73F6D7A5</color>
+    <color name="slideColor4">#73124475</color>
+    <color name="slideColor5">#736BBFFF</color>
+    <color name="slideColor6">#73BDBDBD</color>
 </resources>

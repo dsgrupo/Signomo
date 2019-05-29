@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/edtRegisterNome"
+        android:id="@+id/edtConfigNome"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
         android:hint="Insira seu nome"
@@ -18,10 +18,10 @@
         android:inputType="textEmailAddress" />
     <EditText
         android:editable="false"
-        android:id="@+id/datePicker"
+        android:id="@+id/configDatePicker"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtRegisterNome"
+        android:layout_below="@+id/edtConfigNome"
         android:text="Sua data de nascimento "
         android:drawableLeft="@drawable/ic_calendar_24dp"
         android:drawablePadding="15dp"
@@ -32,8 +32,8 @@
         android:textSize="19dp"/>
 
     <EditText
-        android:layout_below="@+id/datePicker"
-        android:id="@+id/edtRegisterEmail"
+        android:layout_below="@+id/configDatePicker"
+        android:id="@+id/edtConfigEmail"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
         android:hint="Insira seu e-mail"
@@ -46,7 +46,7 @@
         android:inputType="textEmailAddress" />
     <EditText
         android:id="@+id/edtRegisterSenha"
-        android:layout_below="@+id/edtRegisterEmail"
+        android:layout_below="@+id/edtConfigEmail"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
         android:hint="Insira sua senha"
@@ -72,7 +72,7 @@
         android:inputType="textPassword" />
     <LinearLayout
         android:layout_marginTop="20dp"
-        android:id="@+id/linkGroup"
+        android:id="@+id/configLinkGroup"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/edtConfirmRegisterSenha"
         android:layout_width="wrap_content"

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_bghoroscopo"
+    android:scrollbars="none">
+    <RelativeLayout
+        android:id="@+id/defTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/fontColor">
+
+        <RelativeLayout
+            android:id="@+id/defNavigationbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_marginEnd="50dp"
+                android:id="@+id/defImgBtnBack"
+                android:layout_width="30dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_undo_variant"
+                android:background="@android:color/transparent"
+                android:tint="@color/pureWhite"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/defTitleApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SIGNOMO"
+                android:textColor="@color/pureWhite"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:layout_marginTop="20dp"/>
+            <ImageView
+                android:layout_below="@+id/defTitleApp"
+                android:tint="@color/pureWhite"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/defSignPic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_aquarium"
+                android:scaleType="centerInside"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/defNavigationbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/def_mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/defTopBar">
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
