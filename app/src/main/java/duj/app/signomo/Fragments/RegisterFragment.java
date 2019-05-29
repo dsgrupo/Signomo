@@ -15,8 +15,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.Calendar;
 
 import duj.app.signomo.R;
@@ -48,7 +46,7 @@ public class RegisterFragment extends Fragment {
             }
         });
 
-        final EditText myDatePicker = (EditText) view.findViewById(R.id.datePicker);
+        final EditText myDatePicker = (EditText) view.findViewById(R.id.configDatePicker);
         myDatePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

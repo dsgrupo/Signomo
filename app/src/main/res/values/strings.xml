@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Signomo</string>
+    <string name="signoAquario">AQUÁRIO</string>
+    <string name="signoPeixes">PEIXES</string>
+    <string name="signoAries">ÁRIES</string>
+    <string name="signoTouro">TOURO</string>
+    <string name="signoGemeos">GÊMEOS</string>
+    <string name="signoCancer">CÂNCER</string>
+    <string name="signoLeao">LEÃO</string>
+    <string name="signoVirgem">VIRGEM</string>
+    <string name="signoLibra">LIBRA</string>
+    <string name="signoEscorpiao">ESCORPIÃO</string>
+    <string name="signoSagitario">SAGITÁRIO</string>
+    <string name="signoCapricornio">CAPRICÓRNIO</string>
+    <string name="definicaogenerica1">O libriano é cativante, sociável e dotado de uma vivacidade pouco comum, ele sabe tecer os relacionamentos com harmonia. Os librianos não gostam do conflito e age sempre com moderação a fim de privilegiar seu ambiente de vida.</string>
+    <string name="definicaogenerica2">A libriana gosta de ser adorada e mimada. Fará de tudo sempre para prender seu amado usando todo seu encanto. Mas, assim como ela dá carinho e atenção, ela tem que receber.</string>
+    <string name="horoscope">A Lua em Touro recebe um ótimo aspecto de Saturno já em seu movimento retrógrado, indicando um dia de retomada de discussões relacionadas com uma sociedade ou parceria financeira. O momento é bom para um novo investimento!</string>
 </resources>

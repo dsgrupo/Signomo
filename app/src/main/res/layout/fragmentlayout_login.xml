@@ -39,7 +39,7 @@
         android:inputType="textPassword" />
     <LinearLayout
         android:layout_marginTop="20dp"
-        android:id="@+id/linkGroup"
+        android:id="@+id/configLinkGroup"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/edtLoginSenha"
         android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
         android:id="@+id/btnLogin"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/linkGroup"
+        android:layout_below="@+id/configLinkGroup"
         android:layout_width="268dp"
         android:layout_height="40dp"
         android:textColor="@color/pureWhite"
