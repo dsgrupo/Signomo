@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Harris McDaniels"
+        android:text="@string/nomeGenerico"
         android:textStyle="bold"
         android:textSize="24sp"
         android:textColor="@color/menuTextColor"/>
@@ -33,7 +33,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aquarian, 07/02/1998"
+        android:text="@string/signoDataGenericos"
         android:textSize="24sp"
         android:textColor="@color/menuTextColor"/>
     <RelativeLayout
@@ -53,7 +53,7 @@
         <TextView
             android:layout_below="@+id/dialogIcon"
             android:layout_centerHorizontal="true"
-            android:text="Ascendência em Câncer!"
+            android:text="@string/ascGenerica"
             android:textSize="32sp"
             android:textColor="@color/menuTextColor"
             android:textAlignment="center"

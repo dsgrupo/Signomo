@@ -15,13 +15,13 @@
         android:background="@color/fontColor">
 
         <RelativeLayout
-            android:id="@+id/configNavigationbar"
+            android:id="@+id/horoscNavigationbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageButton
                 android:layout_marginEnd="50dp"
-                android:id="@+id/hrscpImgBtnBack"
+                android:id="@+id/horoscImgBtnBack"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_alignParentRight="true"
@@ -31,16 +31,16 @@
                 android:layout_marginTop="20dp"/>
             <TextView
                 android:layout_centerHorizontal="true"
-                android:id="@+id/configTitleApp"
+                android:id="@+id/horoscTitleApp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SIGNOMO"
+                android:text="@string/uppCaseAppname"
                 android:textColor="@color/pureWhite"
                 android:textStyle="bold"
                 android:textSize="24sp"
                 android:layout_marginTop="20dp"/>
             <ImageView
-                android:layout_below="@+id/configTitleApp"
+                android:layout_below="@+id/horoscTitleApp"
                 android:tint="@color/pureWhite"
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
@@ -52,7 +52,7 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:layout_below="@+id/configNavigationbar"
+            android:layout_below="@+id/horoscNavigationbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -74,11 +74,11 @@
                 <RelativeLayout
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:id="@+id/porcentagemPrevisoes"
+                    android:id="@+id/horoscPorcentagemPrevisoes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
-                        android:id="@+id/retanguloPrevisoes"
+                        android:id="@+id/horoscRetanguloPrevisoes"
                         android:layout_width="4dp"
                         android:layout_height="18dp"
                         android:layout_marginTop="10dp"
@@ -90,14 +90,14 @@
                         android:textStyle="bold"
                         android:layout_marginTop="6dp"
                         android:layout_marginStart="5dp"
-                        android:layout_toRightOf="@+id/retanguloPrevisoes"
+                        android:layout_toRightOf="@+id/horoscRetanguloPrevisoes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:textColor="@color/pureWhite"
-                        android:text="PREVISÕES"/>
+                        android:text="@string/previsoes"/>
                     <RelativeLayout
-                        android:layout_below="@+id/retanguloPrevisoes"
+                        android:layout_below="@+id/horoscRetanguloPrevisoes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -133,27 +133,29 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/ivCoin"
                             android:layout_centerHorizontal="true"
-                            android:text="20%"
+                            android:text="@string/genericPercent"
                             android:textSize="26sp"
                             android:textStyle="bold"
                             android:textColor="@color/pureWhite"/>
                         <TextView
+                            android:id="@+id/tvMoneyPercent"
                             android:layout_width="65dp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/ivCoin"
                             android:layout_toLeftOf="@+id/tvHeartPercent"
                             android:layout_marginEnd="15dp"
-                            android:text="70%"
+                            android:text="@string/genericPercent2"
                             android:textSize="26sp"
                             android:textStyle="bold"
                             android:textColor="@color/pureWhite"/>
                         <TextView
+                            android:id="@+id/tvHealthPercent"
                             android:layout_width="65dp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/ivHeartPulse"
                             android:layout_toRightOf="@+id/tvHeartPercent"
                             android:layout_marginStart="38dp"
-                            android:text="20%"
+                            android:text="@string/genericPercent"
                             android:textSize="26sp"
                             android:textStyle="bold"
                             android:textColor="@color/pureWhite"/>
@@ -164,7 +166,7 @@
                 <RelativeLayout
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_below="@+id/porcentagemPrevisoes"
+                    android:layout_below="@+id/horoscPorcentagemPrevisoes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
@@ -185,18 +187,19 @@
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:textColor="@color/pureWhite"
-                        android:text="HORÓSCOPO"/>
+                        android:text="@string/horoscopo"/>
                     <RelativeLayout
                         android:layout_below="@+id/retanguloPrevisao"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
+                            android:id="@+id/horText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center|fill"
                             android:textColor="@color/pureWhite"
                             android:padding="20dp"
-                            android:text="@string/horoscope"/>
+                            android:text="@string/horAquario"/>
 
 
                     </RelativeLayout>

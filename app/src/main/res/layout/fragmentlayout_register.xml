@@ -5,10 +5,10 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/edtConfigNome"
+        android:id="@+id/edtRegisterNome"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
-        android:hint="Insira seu nome"
+        android:hint="@string/inserirNome"
         android:drawableStart="@drawable/ic_email_24dp"
         android:drawablePadding="15dp"
         android:layout_centerHorizontal="true"
@@ -18,11 +18,11 @@
         android:inputType="textEmailAddress" />
     <EditText
         android:editable="false"
-        android:id="@+id/configDatePicker"
+        android:id="@+id/registerDatePicker"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtConfigNome"
-        android:text="Sua data de nascimento "
+        android:layout_below="@+id/edtRegisterNome"
+        android:hint="@string/inserirDataNasc"
         android:drawableLeft="@drawable/ic_calendar_24dp"
         android:drawablePadding="15dp"
         android:layout_centerHorizontal="true"
@@ -32,11 +32,11 @@
         android:textSize="19dp"/>
 
     <EditText
-        android:layout_below="@+id/configDatePicker"
-        android:id="@+id/edtConfigEmail"
+        android:layout_below="@+id/registerDatePicker"
+        android:id="@+id/edtRegisterEmail"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
-        android:hint="Insira seu e-mail"
+        android:hint="@string/inserirEmail"
         android:drawableStart="@drawable/ic_email_24dp"
         android:drawablePadding="15dp"
         android:layout_centerHorizontal="true"
@@ -46,10 +46,10 @@
         android:inputType="textEmailAddress" />
     <EditText
         android:id="@+id/edtRegisterSenha"
-        android:layout_below="@+id/edtConfigEmail"
+        android:layout_below="@+id/edtRegisterEmail"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
-        android:hint="Insira sua senha"
+        android:hint="@string/inserirSenha"
         android:drawableStart="@drawable/ic_vpn_key_black_24dp"
         android:drawablePadding="15dp"
         android:layout_centerHorizontal="true"
@@ -62,7 +62,7 @@
         android:layout_below="@+id/edtRegisterSenha"
         android:layout_width="262dp"
         android:layout_height="wrap_content"
-        android:hint="Confirme sua senha"
+        android:hint="@string/confirmeSenha"
         android:drawableStart="@drawable/ic_vpn_key_black_24dp"
         android:drawablePadding="15dp"
         android:layout_centerHorizontal="true"
@@ -83,15 +83,16 @@
             android:textColor="@color/fontColor"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:text="Já possui conta?"/>
+            android:text="@string/jaPossuiConta"/>
         <Button
+            android:id="@+id/btnRegistrar"
             android:layout_marginTop="20dp"
             android:layout_width="268dp"
             android:layout_height="40dp"
             android:backgroundTint="@color/btnColor"
             android:textColor="@color/pureWhite"
             android:background="@drawable/button_round"
-            android:text="INSCREVER-SE"
+            android:text="@string/inscrever"
             android:layout_marginBottom="20dp"
             />
     </LinearLayout>

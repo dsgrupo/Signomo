@@ -10,12 +10,13 @@
         android:layout_height="179dp"></RelativeLayout>
     <ImageButton
         android:id="@+id/dialogCloseBtn"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_close_24dp"
+        android:tint="@color/menuTextColor"
         android:background="@android:color/transparent"/>
     <TextView
         android:id="@+id/dialogUserName"
@@ -23,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Harris McDaniels"
+        android:text="@string/nomeGenerico"
         android:textStyle="bold"
         android:textSize="24sp"
         android:textColor="@color/menuTextColor"/>
@@ -33,27 +34,27 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aquarian, 07/02/1998"
+        android:text="@string/signoDataIntGenericos"
         android:textSize="24sp"
         android:textColor="@color/menuTextColor"/>
     <RelativeLayout
         android:layout_below="@+id/divInfos"
         android:layout_width="match_parent"
         android:layout_height="344dp"
-        android:background="@color/dialogBottomColor">
+        android:background="@drawable/bg_selecscreen">
 
         <ImageView
             android:id="@+id/dialogIcon"
             android:layout_width="137dp"
             android:layout_height="137dp"
-            android:src="@drawable/ic_scorpio"
+            android:src="@drawable/ic_aquarium"
             android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
             />
         <TextView
             android:layout_below="@+id/dialogIcon"
             android:layout_centerHorizontal="true"
-            android:text="Ascendência em Câncer!"
+            android:text="@string/ascGen2"
             android:textSize="32sp"
             android:textColor="@color/menuTextColor"
             android:textAlignment="center"
