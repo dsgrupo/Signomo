@@ -72,7 +72,7 @@ public class MyPageAdapter extends PagerAdapter {
                         break;
                     case 2:
                         AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
-                        View mView = layoutInflater.inflate(R.layout.dialog_asc, null);
+                        View mView = layoutInflater.inflate(R.layout.testlayout_dialog_asc, null);
                         ImageButton myCloseButton = (ImageButton) mView.findViewById(R.id.dialogCloseBtn);
                         mBuilder.setView(mView);
                         final AlertDialog dialog = mBuilder.create();

@@ -34,7 +34,7 @@
                 android:id="@+id/configTitleApp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SIGNOMO"
+                android:text="@string/uppCaseAppname"
                 android:textColor="@color/menuTextColor"
                 android:textStyle="bold"
                 android:textSize="24sp"
@@ -48,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
+
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="20dp"
@@ -67,20 +68,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
+                    android:layout_gravity="center"
                     android:id="@+id/configProfilename"
                     android:textColor="@color/menuTextColor"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Harris McDaniels"/>
+                    android:text="@string/nomeGenerico"/>
                 <TextView
                     android:layout_gravity="center"
+                    android:id="@+id/configTvDataSigno"
                     android:textColor="@color/menuTextColor"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Aquariano, 21"/>
+                    android:text="@string/signoDataGenericos"/>
             </LinearLayout>
         </RelativeLayout>
 
@@ -106,7 +109,7 @@
                     android:id="@+id/edtConfigNome"
                     android:layout_width="262dp"
                     android:layout_height="wrap_content"
-                    android:hint="Insira seu nome"
+                    android:hint="@string/inserirNome"
                     android:drawableStart="@drawable/ic_email_24dp"
                     android:drawablePadding="15dp"
                     android:layout_centerHorizontal="true"
@@ -121,7 +124,7 @@
                     android:layout_width="262dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/edtConfigNome"
-                    android:text="Sua data de nascimento "
+                    android:hint="@string/configDataNasc"
                     android:drawableLeft="@drawable/ic_calendar_24dp"
                     android:drawablePadding="15dp"
                     android:layout_centerHorizontal="true"
@@ -136,7 +139,7 @@
                     android:id="@+id/edtConfigEmail"
                     android:layout_width="262dp"
                     android:layout_height="wrap_content"
-                    android:hint="Insira seu e-mail"
+                    android:hint="@string/inserirEmail"
                     android:drawableTint="@color/menuTextColor"
                     android:drawableStart="@drawable/ic_email_24dp"
                     android:drawablePadding="15dp"
@@ -150,7 +153,7 @@
                     android:layout_below="@+id/edtConfigEmail"
                     android:layout_width="262dp"
                     android:layout_height="wrap_content"
-                    android:hint="Insira sua senha"
+                    android:hint="@string/inserirSenha"
                     android:drawableStart="@drawable/ic_vpn_key_black_24dp"
                     android:drawableTint="@color/menuTextColor"
                     android:drawablePadding="15dp"
@@ -168,13 +171,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <Button
+                        android:id="@+id/configBtnSalvar"
                         android:layout_marginTop="20dp"
                         android:layout_width="268dp"
                         android:layout_height="40dp"
                         android:backgroundTint="@color/menuTextColor"
                         android:textColor="@color/pureWhite"
                         android:background="@drawable/button_round"
-                        android:text="SALVAR"
+                        android:text="@string/salvar"
                         android:layout_marginBottom="20dp"
                         />
                 </LinearLayout>

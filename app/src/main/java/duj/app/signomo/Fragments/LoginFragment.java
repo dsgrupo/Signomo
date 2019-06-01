@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import duj.app.signomo.R;
+import duj.app.signomo.SharedPreference.PreferenceUtils;
 import duj.app.signomo.activities.MainActivity;
 
 public class LoginFragment extends Fragment {
@@ -28,7 +29,7 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         TextView myLinkTxt = (TextView)view.findViewById(R.id.linkDHAccount);
         Button myBtnLogin = (Button)view.findViewById(R.id.btnLogin);
@@ -38,13 +39,13 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 EditText inputEmail = (EditText)rootView.findViewById(R.id.edtLoginEmail);
                 EditText inputPw = (EditText)rootView.findViewById(R.id.edtLoginSenha);
-//                if (inputEmail.getText().toString().trim().equals("support@duj.com") && inputPw.getText().toString().trim().equals("123")){
+                if ((inputEmail.getText().toString().trim().equals("support@duj.com") && inputPw.getText().toString().trim().equals("123")) || (inputEmail.getText().toString().trim().equals(PreferenceUtils.getEmail(view.getContext())) && inputPw.getText().toString().trim().equals(PreferenceUtils.getSenha(view.getContext())))){
                     Intent i = new Intent(getActivity(), MainActivity.class);
                     startActivity(i);
-//                }else{
+                }else{
                     TextView myTv = (TextView) rootView.findViewById(R.id.tvWrongCombination);
                     myTv.setVisibility(View.VISIBLE);
-//                }
+                }
             }
         });
 

@@ -11,14 +11,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+
             <RelativeLayout
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:id="@+id/porcentagemPrevisoes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
-                    android:id="@+id/retanguloPrevisoes"
+                    android:id="@+id/fragDef2_retanguloPrevisao"
                     android:layout_width="4dp"
                     android:layout_height="18dp"
                     android:layout_marginTop="10dp"
@@ -30,91 +30,24 @@
                     android:textStyle="bold"
                     android:layout_marginTop="6dp"
                     android:layout_marginStart="5dp"
-                    android:layout_toRightOf="@+id/retanguloPrevisoes"
+                    android:layout_toRightOf="@+id/fragDef2_retanguloPrevisao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:textColor="@color/pureWhite"
-                    android:text="SEXO"/>
+                    android:text="@string/definicao"/>
                 <RelativeLayout
-                    android:layout_below="@+id/retanguloPrevisoes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/btnOpcaoHomem"
-                            android:layout_weight="1"
-                            android:textSize="18sp"
-                            android:textColor="@color/pureWhite"
-                            android:layout_marginTop="6dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="HOMEM DE LIBRA"
-                            android:padding="10dp"
-                            android:background="@drawable/shape_btn_definicao"
-                            />
-
-                        <TextView
-                            android:id="@+id/btnOpcaoMulher"
-                            android:layout_marginStart="15dp"
-                            android:layout_weight="1"
-                            android:textSize="18sp"
-                            android:textColor="@color/pureWhite"
-                            android:textStyle="bold"
-                            android:layout_marginTop="6dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="MULHER DE LIBRA"
-                            android:padding="10dp"
-                            android:background="@drawable/shape_btn_definicao"/>
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_below="@+id/porcentagemPrevisoes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:id="@+id/retanguloPrevisao"
-                    android:layout_width="4dp"
-                    android:layout_height="18dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="15dp"
-                    android:orientation="vertical"
-                    android:layout_gravity="center"
-                    android:background="#570264"></LinearLayout>
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_toRightOf="@+id/retanguloPrevisao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textColor="@color/pureWhite"
-                    android:text="DEFINIÇÃO"/>
-                <RelativeLayout
-                    android:layout_below="@+id/retanguloPrevisao"
+                    android:layout_below="@+id/fragDef2_retanguloPrevisao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        android:id="@+id/tvDefMulher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center|fill"
                         android:textColor="@color/pureWhite"
                         android:padding="20dp"
-                        android:text="@string/definicaogenerica2"/>
+                        android:text="@string/defLibraMulher"/>
 
 
                 </RelativeLayout>
