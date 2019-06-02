@@ -67,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
+                    android:layout_gravity="center"
                     android:id="@+id/mapProfilename"
                     android:textColor="@color/menuTextColor"
                     android:textStyle="bold"
@@ -75,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/nomeGenerico"/>
                 <TextView
+                    android:id="@+id/mapSignoData"
                     android:layout_gravity="center"
                     android:textColor="@color/menuTextColor"
                     android:textSize="20sp"

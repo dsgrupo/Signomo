@@ -9,7 +9,8 @@
         android:layout_width="262dp"
         android:layout_height="wrap_content"
         android:hint="@string/inserirNome"
-        android:drawableStart="@drawable/ic_email_24dp"
+        android:drawableStart="@drawable/ic_person_24dp"
+        android:drawableTint="@color/fontColor"
         android:drawablePadding="15dp"
         android:layout_centerHorizontal="true"
         android:textColor="@color/fontColor"
@@ -32,7 +33,23 @@
         android:textSize="19dp"/>
 
     <EditText
+        android:editable="false"
+        android:id="@+id/registerTimePicker"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/registerDatePicker"
+        android:hint="@string/registerHoraNasc"
+        android:drawableLeft="@drawable/ic_time_24dp"
+        android:drawableTint="@color/fontColor"
+        android:drawablePadding="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/fontColor"
+        android:textColorHint="@color/fontColor"
+        android:backgroundTint="@color/fontColor"
+        android:textSize="19dp"/>
+
+    <EditText
+        android:layout_below="@+id/registerTimePicker"
         android:id="@+id/edtRegisterEmail"
         android:layout_width="262dp"
         android:layout_height="wrap_content"

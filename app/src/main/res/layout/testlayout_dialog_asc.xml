@@ -29,6 +29,7 @@
         android:textSize="24sp"
         android:textColor="@color/menuTextColor"/>
     <TextView
+        android:id="@+id/dialogSignoData"
         android:layout_below="@+id/dialogUserName"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"

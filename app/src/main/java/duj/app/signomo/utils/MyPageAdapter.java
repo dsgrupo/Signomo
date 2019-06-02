@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import duj.app.signomo.R;
+import duj.app.signomo.SharedPreference.PreferenceUtils;
 import duj.app.signomo.activities.ConfigActivity;
 import duj.app.signomo.activities.DefinicaoSignoActiviy;
 import duj.app.signomo.activities.MapaAstralActivity;
@@ -71,9 +72,14 @@ public class MyPageAdapter extends PagerAdapter {
                         v.getContext().startActivity(i);
                         break;
                     case 2:
+
                         AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
                         View mView = layoutInflater.inflate(R.layout.testlayout_dialog_asc, null);
                         ImageButton myCloseButton = (ImageButton) mView.findViewById(R.id.dialogCloseBtn);
+                        TextView tvNomeUsuario = mView.findViewById(R.id.dialogUserName);
+                        TextView tvSignoData = mView.findViewById(R.id.dialogSignoData);
+                        tvNomeUsuario.setText(PreferenceUtils.getNome(mView.getContext()));
+                        tvSignoData.setText(PreferenceUtils.getSigno(mView.getContext())+", "+PreferenceUtils.getNasc(mView.getContext()));
                         mBuilder.setView(mView);
                         final AlertDialog dialog = mBuilder.create();
                         dialog.show();
