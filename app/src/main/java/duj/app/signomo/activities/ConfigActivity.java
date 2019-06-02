@@ -82,6 +82,7 @@ public class ConfigActivity extends AppCompatActivity implements ImageView.OnCli
             }
         };
 
+        img.setImageResource(R.drawable.ic_person_24dp);
 
         if (PreferenceUtils.getNome(this) != null && PreferenceUtils.getNasc(this)!=null){
             tvNome.setText(PreferenceUtils.getNome(this));

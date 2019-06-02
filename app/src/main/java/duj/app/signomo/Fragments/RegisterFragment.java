@@ -1,6 +1,7 @@
 package duj.app.signomo.Fragments;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -23,7 +25,8 @@ import duj.app.signomo.R;
 import duj.app.signomo.SharedPreference.PreferenceUtils;
 
 public class RegisterFragment extends Fragment {
-
+    private EditText edtEscolherHora;
+    private TimePickerDialog timePickerDialog;
     private EditText edtNome;
     private EditText edtEmail;
     private EditText edtSenha;
@@ -40,7 +43,7 @@ public class RegisterFragment extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final EditText myDatePicker = (EditText) view.findViewById(R.id.registerDatePicker);
-
+        edtEscolherHora = view.findViewById(R.id.registerTimePicker);
         edtNome = (EditText)view.findViewById(R.id.edtRegisterNome);
         edtEmail = (EditText)view.findViewById(R.id.edtRegisterEmail);
         edtSenha = (EditText)view.findViewById(R.id.edtRegisterSenha);
@@ -52,23 +55,31 @@ public class RegisterFragment extends Fragment {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PreferenceUtils.saveNome(edtNome.getText().toString().trim(),v.getContext());
-                PreferenceUtils.saveEmail(edtEmail.getText().toString().trim(),v.getContext());
-                PreferenceUtils.saveSenha(edtSenha.getText().toString().trim(),v.getContext());
-                PreferenceUtils.saveNasc(myDatePicker.getText().toString().trim(),v.getContext());
-                edtEmail.setText("");
-                edtNome.setText("");
-                edtSenha.setText("");
-                edtConfirmSenha.setText("");
-                myDatePicker.setText("");
-                Toast.makeText(v.getContext(),"Conta criada com sucesso!", Toast.LENGTH_LONG).show();
 
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                if (edtNome.getText().toString().equals("")||myDatePicker.getText().toString().equals("")||
+                edtEscolherHora.getText().toString().equals("")|| edtEmail.getText().toString().equals("")||
+                edtSenha.getText().toString().equals("")||edtConfirmSenha.getText().toString().equals("")){
+                    Toast.makeText(v.getContext(),"Preencha todos os campos.", Toast.LENGTH_SHORT).show();
+                }else{
+                    PreferenceUtils.saveNome(edtNome.getText().toString().trim(),v.getContext());
+                    PreferenceUtils.saveEmail(edtEmail.getText().toString().trim(),v.getContext());
+                    PreferenceUtils.saveSenha(edtSenha.getText().toString().trim(),v.getContext());
+                    PreferenceUtils.saveNasc(myDatePicker.getText().toString().trim(),v.getContext());
+                    edtEmail.setText("");
+                    edtNome.setText("");
+                    edtSenha.setText("");
+                    edtConfirmSenha.setText("");
+                    myDatePicker.setText("");
+                    PreferenceUtils.saveImage(null,v.getContext());
+                    Toast.makeText(v.getContext(),"Conta criada com sucesso!", Toast.LENGTH_LONG).show();
 
-                transaction.replace(R.id.fragment_container, new LoginFragment());
-                transaction.addToBackStack(null);
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
-                transaction.commit();
+                    transaction.replace(R.id.fragment_container, new LoginFragment());
+                    transaction.addToBackStack(null);
+
+                    transaction.commit();
+                }
 
             }
         });
@@ -83,6 +94,19 @@ public class RegisterFragment extends Fragment {
                 transaction.addToBackStack(null);
 
                 transaction.commit();
+            }
+        });
+
+        edtEscolherHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                        edtEscolherHora.setText(hourOfDay+":"+minutes);
+                    }
+                }, 0, 0, false);
+                timePickerDialog.show();
             }
         });
 

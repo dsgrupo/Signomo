@@ -14,6 +14,7 @@
     <string name="jaPossuiConta">Já possui conta?</string>
     <string name="inscrever">INSCREVER-SE</string>
     <string name="configDataNasc">Sua data de nascimento</string>
+    <string name="registerHoraNasc">Hora do seu nascimento</string>
     <string name="salvar">SALVAR</string>
     <!--APP-->
     <string name="ascGen2">Ascendência em Aquario!</string>

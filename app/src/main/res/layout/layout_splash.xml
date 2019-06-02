@@ -20,11 +20,11 @@
         android:src="@drawable/ic_logo" />
     <TextView
         android:id="@+id/splashMessage"
-        android:layout_width="210dp"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:text="@string/welcomeText"
         android:layout_below="@+id/splashLogo"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="120dp"
         android:textSize="32sp"
         android:textColor="@color/fontColor"
         android:layout_centerHorizontal="true"/>

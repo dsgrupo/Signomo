@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
         tvData1 = (TextView)findViewById(R.id.mainData1);
         tvData2 = (TextView)findViewById(R.id.mainData2);
         img = (ImageView) findViewById(R.id.mainProfilePic);
-
+        img.setImageResource(R.drawable.ic_person_24dp);
+        img.setClipToOutline(true);
         Calendar cal = Calendar.getInstance();
         tvData1.setText(""+cal.get(Calendar.DAY_OF_MONTH));
         tvData2.setText(""+cal.get(Calendar.DAY_OF_MONTH));
@@ -84,14 +85,11 @@ public class MainActivity extends AppCompatActivity {
         mLP.addRule(RelativeLayout.BELOW, R.id.configNavigationbar);
         mLP.addRule(RelativeLayout.CENTER_IN_PARENT);
         mContainer.setLayoutParams(mLP);
-        ImageView img = (ImageView) findViewById(R.id.mainProfilePic);
-        img.setImageResource(R.drawable.ic_person_24dp);
-        img.setClipToOutline(true);
 
 
         models = new ArrayList<>();
         models.add(new Model(R.drawable.itembg,"Mapa astral","Clique para ver seu mapa astral."));
-        models.add(new Model(R.drawable.itembg,"Definição","Clique para conhecer as definições dos signos."));
+        models.add(new Model(R.drawable.itembg,"Definição","Clique para conhecer as definições do seu signo."));
         models.add(new Model(R.drawable.itembg,"Ascendência","Clique para ver sua ascendência."));
         models.add(new Model(R.drawable.itembg,"Configurações","Clique para editar suas configurações."));
 
