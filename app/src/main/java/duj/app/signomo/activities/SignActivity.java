@@ -1,5 +1,6 @@
 package duj.app.signomo.activities;
 
+import android.os.StrictMode;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
