@@ -21,8 +21,15 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import duj.app.signomo.Models.Usuario;
 import duj.app.signomo.R;
+import duj.app.signomo.Retrofit.RetrofitConfig;
+import duj.app.signomo.Retrofit.model.LoginDetails;
+import duj.app.signomo.Retrofit.model.RegistrationDetails;
 import duj.app.signomo.SharedPreference.PreferenceUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterFragment extends Fragment {
     private EditText edtEscolherHora;
@@ -61,24 +68,44 @@ public class RegisterFragment extends Fragment {
                 edtSenha.getText().toString().equals("")||edtConfirmSenha.getText().toString().equals("")){
                     Toast.makeText(v.getContext(),"Preencha todos os campos.", Toast.LENGTH_SHORT).show();
                 }else{
-                    PreferenceUtils.saveNome(edtNome.getText().toString().trim(),v.getContext());
-                    PreferenceUtils.saveEmail(edtEmail.getText().toString().trim(),v.getContext());
-                    PreferenceUtils.saveSenha(edtSenha.getText().toString().trim(),v.getContext());
-                    PreferenceUtils.saveNasc(myDatePicker.getText().toString().trim(),v.getContext());
-                    edtEmail.setText("");
-                    edtNome.setText("");
-                    edtSenha.setText("");
-                    edtConfirmSenha.setText("");
-                    myDatePicker.setText("");
-                    PreferenceUtils.saveImage(null,v.getContext());
-                    Toast.makeText(v.getContext(),"Conta criada com sucesso!", Toast.LENGTH_LONG).show();
+                    Call<Usuario> call = new RetrofitConfig().getUsuarioService().register(new RegistrationDetails(
+                            edtNome.getText().toString().trim(),
+                            edtEmail.getText().toString().trim(),
+                            edtSenha.getText().toString().trim(),
+                            myDatePicker.getText().toString().trim(),
+                            ""
+                    ));
+                    call.enqueue(new Callback<Usuario>() {
+                        @Override
+                        public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                            PreferenceUtils.saveNome(edtNome.getText().toString().trim(),view.getContext());
+                            PreferenceUtils.saveEmail(edtEmail.getText().toString().trim(),view.getContext());
+                            PreferenceUtils.saveSenha(edtSenha.getText().toString().trim(),view.getContext());
+                            PreferenceUtils.saveNasc(myDatePicker.getText().toString().trim(),view.getContext());
+                            edtEmail.setText("");
+                            edtNome.setText("");
+                            edtSenha.setText("");
+                            edtConfirmSenha.setText("");
+                            myDatePicker.setText("");
+                            PreferenceUtils.saveImage(null, view.getContext());
+                            Toast.makeText(view.getContext(),"Conta criada com sucesso!", Toast.LENGTH_LONG).show();
+                            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                            transaction.replace(R.id.fragment_container, new LoginFragment());
+                            transaction.addToBackStack(null);
 
-                    transaction.replace(R.id.fragment_container, new LoginFragment());
-                    transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
 
-                    transaction.commit();
+                        @Override
+                        public void onFailure(Call<Usuario> call, Throwable t) {
+                            Toast.makeText(getContext(), "Houve um erro no registro, por favor tente novamente.", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    });
+
+
+
                 }
 
             }

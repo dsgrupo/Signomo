@@ -9,6 +9,7 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -276,12 +277,18 @@ public class MainActivity extends AppCompatActivity {
     public static void calcularSigno(String nasc, Context ctx){
         String signo=nasc;
 
+        Log.w("Nascimento:",nasc);
+
         String[] parts = nasc.split("/");
         System.out.println(parts[0]);
         System.out.println(parts[1]);
         System.out.println(parts[2]);
         int dia = Integer.parseInt(parts[0]);
         String mes = parts[1];
+
+        Log.w("Mes:", mes);
+        Log.w("Mes:", parts[0]);
+
 
         if ((mes.equals("01") && dia >=20) || (mes.equals("02") && dia <= 18)){//Aquarium
             signo = "Aquário";

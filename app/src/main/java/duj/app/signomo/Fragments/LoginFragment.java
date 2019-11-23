@@ -67,19 +67,19 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Tex
 
 
 
-//        myLinkTxt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                System.out.println("Clicou");
-//
-//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//
-//                transaction.replace(R.id.fragment_container, new RegisterFragment());
-//                transaction.addToBackStack(null);
-//
-//                transaction.commit();
-//            }
-//        });
+        myLinkTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Clicou");
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.fragment_container, new RegisterFragment());
+                transaction.addToBackStack(null);
+
+                transaction.commit();
+            }
+        });
     }
 
     @Override
@@ -112,10 +112,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Tex
                     Toast.makeText(getContext(), "Credenciais inválidas", Toast.LENGTH_LONG)
                             .show();
                 }else{
+                    PreferenceUtils.saveNome(userDetails.getName(),getContext());
                     PreferenceUtils.saveId(userDetails.getId(), getContext());
                     PreferenceUtils.saveEmail(userDetails.getEmail(), getContext());
                     PreferenceUtils.saveNasc(userDetails.getBirthDate(), getContext());
-                    PreferenceUtils.savebirthTime(userDetails.getBirthTime(), getContext());
+//                  PreferenceUtils.savebirthTime(userDetails.getBirthTime(), getContext());
                     Intent i = new Intent(getActivity(), MainActivity.class);
                     startActivity(i);
                 }
