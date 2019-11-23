@@ -24,6 +24,7 @@ import duj.app.signomo.Models.Usuario;
 import duj.app.signomo.Retrofit.RetrofitConfig;
 import duj.app.signomo.R;
 import duj.app.signomo.Retrofit.UsuarioService;
+import duj.app.signomo.Retrofit.model.LoginDetails;
 import duj.app.signomo.SharedPreference.PreferenceUtils;
 import duj.app.signomo.activities.MainActivity;
 import retrofit2.Call;
@@ -83,7 +84,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Tex
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getActivity().getApplicationContext(), "teste", Toast.LENGTH_SHORT).show();
         if (v.getId() == myBtnLogin.getId()) {
             submitLoginInfo();
         }
@@ -99,11 +99,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Tex
         return false;
     }
     private void submitLoginInfo() {
-        String login = inputEmail.getText().toString().trim();
+        String email = inputEmail.getText().toString().trim();
         String password = inputPw.getText().toString().trim();
-        Log.w("Email", login);
+        Log.w("Email", email);
         Log.w("Senha", password);
-        Call<Usuario> call = new RetrofitConfig().getUsuarioService().login(login,password);
+        Call<Usuario> call = new RetrofitConfig().getUsuarioService().login(new LoginDetails(email,password));
         call.enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
