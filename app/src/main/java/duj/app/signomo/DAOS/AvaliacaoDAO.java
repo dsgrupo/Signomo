@@ -22,9 +22,9 @@ public class AvaliacaoDAO {
 
         db = conexao.getWritableDatabase();
         valores = new ContentValues();
-        valores.put(ConexaoUtil.USUARIO, avaliacao.getUsuario());
-        valores.put(ConexaoUtil.DESCRICAO, avaliacao.getDescri());
-        valores.put(ConexaoUtil.NOTA, avaliacao.getNota());
+        valores.put(ConexaoUtil.USUARIO, avaliacao.getUser_id());
+        valores.put(ConexaoUtil.DESCRICAO, avaliacao.getDescription());
+        valores.put(ConexaoUtil.NOTA, avaliacao.getRating());
 
         // nullcolumnhack identificar coluna que aceite nulo
         resultado = db.insert(ConexaoUtil.TABELA, null, valores);
@@ -48,43 +48,5 @@ public class AvaliacaoDAO {
         }
         db.close();
         return cursor;
-    }
-
-    public Cursor carregaDadoById(int id){
-        Cursor cursor;
-        String[] campos =  {conexao.ID,conexao.USUARIO,conexao.DESCRICAO,conexao.NOTA};
-        String where = ConexaoUtil.ID + "=" + id;
-        db = conexao.getReadableDatabase();
-        cursor = db.query(ConexaoUtil.TABELA,campos,where, null, null, null, null, null);
-
-        if(cursor!=null){
-            cursor.moveToFirst();
-        }
-        db.close();
-        return cursor;
-    }
-
-    public void alteraRegistro(Avaliacao avaliacao){
-        ContentValues valores;
-        String where;
-
-        db = conexao.getWritableDatabase();
-
-        where = ConexaoUtil.ID + "=" + avaliacao.getId();
-
-        valores = new ContentValues();
-        valores.put(ConexaoUtil.USUARIO, avaliacao.getUsuario());
-        valores.put(ConexaoUtil.DESCRICAO, avaliacao.getDescri());
-        valores.put(ConexaoUtil.NOTA, avaliacao.getNota());
-
-        db.update(ConexaoUtil.TABELA,valores,where,null);
-        db.close();
-    }
-
-    public void deletaRegistro(Avaliacao avaliacao){
-        String where = ConexaoUtil.ID + "=" + avaliacao.getId();
-        db = conexao.getReadableDatabase();
-        db.delete(ConexaoUtil.TABELA,where,null);
-        db.close();
     }
 }

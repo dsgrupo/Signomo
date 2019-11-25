@@ -19,4 +19,8 @@ public class RetrofitConfig {
     public UsuarioService getUsuarioService() {
         return this.retrofit.create(UsuarioService.class);
     }
+
+    public AvaliacaoService getAvaliacaoService() {
+        return this.retrofit.create(AvaliacaoService.class);
+    }
 }

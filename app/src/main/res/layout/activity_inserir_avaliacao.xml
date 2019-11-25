@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Usuário:"
+        android:text="Nota:"
         android:id="@+id/textView"
         android:layout_marginTop="47dp"
         android:layout_alignParentTop="true"
@@ -52,41 +52,18 @@
         android:layout_alignRight="@+id/editText"
         android:layout_alignEnd="@+id/editText" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Nota:"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="64dp" />
-    <EditText
-        android:inputType="number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
-
-
-
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
         android:id="@+id/button"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="72dp"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2"
         android:backgroundTint="@color/menuTextColor"
         android:textColor="@color/pureWhite"
         android:background="@drawable/button_round"/>
@@ -100,8 +77,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="72dp"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2"
         android:backgroundTint="@color/menuTextColor"
         android:textColor="@color/pureWhite"
         android:background="@drawable/button_round"/>

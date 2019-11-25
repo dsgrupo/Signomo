@@ -4,25 +4,37 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Avaliacao implements Parcelable {
-    private String usuario;
-    private String descri;
-    private String nota;
-    private int id;
+    private String id;
+    private String user_id;
+    private String description;
+    private String rating;
+    private String createdAt;
+    private String updatedAt;
 
-    public Avaliacao(int id, String usuario, String descri, String nota) {
-        this.usuario = usuario;
-        this.descri = descri;
-        this.nota = nota;
-        this.id=id;
+    public Avaliacao(String user_id, String description, String rating) {
+        this.user_id = user_id;
+        this.description = description;
+        this.rating = rating;
     }
 
-
-
     protected Avaliacao(Parcel in) {
-        usuario = in.readString();
-        descri = in.readString();
-        nota = in.readString();
-        id = in.readInt();
+        id = in.readString();
+        user_id = in.readString();
+        description = in.readString();
+        rating = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(user_id);
+        dest.writeString(description);
+        dest.writeString(rating);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Avaliacao> CREATOR = new Creator<Avaliacao>() {
@@ -37,49 +49,51 @@ public class Avaliacao implements Parcelable {
         }
     };
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getDescri() {
-        return descri;
-    }
-
-    public void setDescri(String descri) {
-        this.descri = descri;
-    }
-
-    public String getNota() {
-        return nota;
-    }
-
-    public void setNota(String nota) {
-        this.nota = nota;
-    }
-
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getUser_id() {
+        return user_id;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(usuario);
-        parcel.writeString(descri);
-        parcel.writeString(nota);
-        parcel.writeInt(id);
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

@@ -25,27 +25,27 @@ public class PreferenceUtils {
     public static boolean saveId(String id, Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString(PreferenceKeys.KEY_NOME, id);
+        prefsEditor.putString(PreferenceKeys.KEY_ID, id);
         prefsEditor.apply();
         return true;
     }
 
     public static String getId(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString(PreferenceKeys.KEY_NOME, null);
+        return prefs.getString(PreferenceKeys.KEY_ID, null);
     }
 
     public static boolean savebirthTime(String birthTime, Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString(PreferenceKeys.KEY_NOME, birthTime);
+        prefsEditor.putString(PreferenceKeys.KEY_TIME, birthTime);
         prefsEditor.apply();
         return true;
     }
 
     public static String getbirthTime(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString(PreferenceKeys.KEY_NOME, null);
+        return prefs.getString(PreferenceKeys.KEY_TIME, null);
     }
 
     public static boolean saveEmail(String email, Context context) {
