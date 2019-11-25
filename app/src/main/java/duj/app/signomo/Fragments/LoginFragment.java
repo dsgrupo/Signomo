@@ -113,6 +113,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Tex
                             .show();
                 }else{
                     PreferenceUtils.saveId(userDetails.getId(), getContext());
+                    PreferenceUtils.saveNome(userDetails.getName(), getContext());
                     PreferenceUtils.saveEmail(userDetails.getEmail(), getContext());
                     PreferenceUtils.saveNasc(userDetails.getBirthDate(), getContext());
                     PreferenceUtils.savebirthTime(userDetails.getBirthTime(), getContext());
