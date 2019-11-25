@@ -28,6 +28,7 @@ public class MapaAstralActivity extends AppCompatActivity {
         tvNomeUsuario = findViewById(R.id.mapProfilename);
         tvSignoData = findViewById(R.id.mapSignoData);
         img = findViewById(R.id.mapProfilepic);
+        img.setImageResource(R.drawable.ic_person_24dp);
         img.setClipToOutline(true);
         if (PreferenceUtils.getImage(this) != null){
             String str_bitmap;
