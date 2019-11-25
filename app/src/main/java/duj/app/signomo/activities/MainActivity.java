@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -285,27 +284,27 @@ public class MainActivity extends AppCompatActivity {
 
         if ((mes.equals("01") && dia >=20) || (mes.equals("02") && dia <= 18)){//Aquarium
             signo = "Aquário";
-        }else if ((mes.equals("2") && dia >=19) || (mes.equals("3") && dia <= 19)){//Peixes
+        }else if ((mes.equals("02") && dia >=19) || (mes.equals("03") && dia <= 19)){//Peixes
             signo = "Peixes";
-        }else if ((mes.equals("3") && dia >=20) || (mes.equals("4") && dia <= 18)){//Peixes
+        }else if ((mes.equals("03") && dia >=20) || (mes.equals("04") && dia <= 18)){//Peixes
             signo = "Áries";
-        }else if ((mes.equals("4") && dia >=19) || (mes.equals("5") && dia <= 19)){//Peixes
+        }else if ((mes.equals("04") && dia >=19) || (mes.equals("05") && dia <= 19)){//Peixes
             signo = "Touro";
-        }else if ((mes.equals("5") && dia >=20) || (mes.equals("6") && dia <= 20)){//Peixes
+        }else if ((mes.equals("05") && dia >=20) || (mes.equals("06") && dia <= 20)){//Peixes
             signo = "Gêmeos";
-        }else if ((mes.equals("6") && dia >=21) || (mes.equals("7") && dia <= 21)){//Peixes
+        }else if ((mes.equals("06") && dia >=21) || (mes.equals("07") && dia <= 21)){//Peixes
             signo = "Câncer";
-        }else if ((mes.equals("7") && dia >=22) || (mes.equals("8") && dia <= 21)){//Peixes
+        }else if ((mes.equals("07") && dia >=22) || (mes.equals("08") && dia <= 21)){//Peixes
             signo = "Leão";
-        }else if ((mes.equals("8") && dia >=22) || (mes.equals("9") && dia <= 21)){//Peixes
+        }else if ((mes.equals("08") && dia >=22) || (mes.equals("09") && dia <= 21)){//Peixes
             signo = "Virgem";
-        }else if ((mes.equals("9") && dia >=22) || (mes.equals("10") && dia <= 22)){//Peixes
+        }else if ((mes.equals("09") && dia >=22) || (mes.equals("10") && dia <= 22)){//Peixes
             signo = "Libra";
         }else if ((mes.equals("10") && dia >=23) || (mes.equals("11") && dia <= 21)){//Peixes
             signo = "Escorpião";
         }else if ((mes.equals("11") && dia >=22) || (mes.equals("12") && dia <= 21)){//Peixes
             signo = "Sagitário";
-        }else if ((mes.equals("12") && dia >=21) || (mes.equals("1") && dia <= 19)){//Peixes
+        }else if ((mes.equals("12") && dia >=21) || (mes.equals("01") && dia <= 19)){//Peixes
             signo = "Capricórnio";
         }
 
