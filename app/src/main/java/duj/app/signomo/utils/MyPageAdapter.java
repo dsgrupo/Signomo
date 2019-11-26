@@ -96,10 +96,6 @@ public class MyPageAdapter extends PagerAdapter {
                         v.getContext().startActivity(i);
                         break;
 
-                    case 4:
-                        i = new Intent(v.getContext(), InserirAvaliacaoActivity.class);
-                        v.getContext().startActivity(i);
-                        break;
                 }
             }
         });

@@ -96,8 +96,7 @@ public class MainActivity extends AppCompatActivity {
         models.add(new Model(R.drawable.itembg,"Mapa astral","Clique para ver seu mapa astral."));
         models.add(new Model(R.drawable.itembg,"Definição","Clique para conhecer as definições do seu signo."));
         models.add(new Model(R.drawable.itembg,"Ascendência","Clique para ver sua ascendência."));
-        models.add(new Model(R.drawable.itembg,"Configurações","Clique para editar suas configurações."));
-        models.add(new Model(R.drawable.itembg,"Avaliação","Clique para adicionar ou alterar uma avaliação."));
+        models.add(new Model(R.drawable.itembg,"Conta","Clique para mais informações da sua conta."));
 
         myPageAdapter = new MyPageAdapter(models, this);
 

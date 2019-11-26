@@ -1,192 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_bghoroscopo"
     tools:context=".activities.ConfigActivity"
-    android:background="@drawable/ic_bghoroscopo">
+    tools:openDrawer="start"
+    android:id="@+id/drawer_layout">
 
     <RelativeLayout
-        android:id="@+id/configTopBar"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@color/btnColor">
+        android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/configNavigationbar"
+            android:id="@+id/configTopBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageButton
-                android:layout_marginEnd="50dp"
-                android:id="@+id/configImgBtnBack"
-                android:layout_width="30dp"
-                android:layout_height="28dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_undo_variant"
-                android:background="@android:color/transparent"
-                android:tint="@color/menuTextColor"
-                android:layout_marginTop="20dp"/>
-            <TextView
-                android:layout_centerHorizontal="true"
-                android:id="@+id/configTitleApp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/uppCaseAppname"
-                android:textColor="@color/menuTextColor"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:layout_marginTop="20dp"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/configNavigationbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="20dp"
-                android:id="@+id/configProfilepic"
-                android:layout_width="93dp"
-                android:layout_height="96dp"
-                android:src="@drawable/ic_harris"
-                android:scaleType="centerCrop"
-                android:background="@drawable/img_shape"/>
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/configProfilepic"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_gravity="center"
-                    android:id="@+id/configProfilename"
-                    android:textColor="@color/menuTextColor"
-                    android:textStyle="bold"
-                    android:textSize="24sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nomeGenerico"/>
-                <TextView
-                    android:layout_gravity="center"
-                    android:id="@+id/configTvDataSigno"
-                    android:textColor="@color/menuTextColor"
-                    android:textSize="20sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/signoDataGenericos"/>
-            </LinearLayout>
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_below="@+id/configTopBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ScrollView
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none">
+            android:layout_height="250dp"
+            android:background="@color/btnColor">
 
             <RelativeLayout
+                android:id="@+id/configNavigationbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/edtConfigNome"
-                    android:layout_width="262dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/inserirNome"
-                    android:drawableStart="@drawable/ic_email_24dp"
-                    android:drawablePadding="15dp"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/menuTextColor"
-                    android:textColorHint="@color/menuTextColor"
-                    android:backgroundTint="@color/menuTextColor"
-                    android:drawableTint="@color/menuTextColor"
-                    android:inputType="textEmailAddress" />
-                <EditText
-                    android:editable="false"
-                    android:id="@+id/configDatePicker"
-                    android:layout_width="262dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/edtConfigNome"
-                    android:hint="@string/configDataNasc"
-                    android:drawableLeft="@drawable/ic_calendar_24dp"
-                    android:drawablePadding="15dp"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/menuTextColor"
-                    android:textColorHint="@color/menuTextColor"
-                    android:backgroundTint="@color/menuTextColor"
-                    android:drawableTint="@color/menuTextColor"
-                    android:textSize="17dp"/>
-
-                <EditText
-                    android:layout_below="@+id/configDatePicker"
-                    android:id="@+id/edtConfigEmail"
-                    android:layout_width="262dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/inserirEmail"
-                    android:drawableTint="@color/menuTextColor"
-                    android:drawableStart="@drawable/ic_email_24dp"
-                    android:drawablePadding="15dp"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/menuTextColor"
-                    android:textColorHint="@color/menuTextColor"
-                    android:backgroundTint="@color/menuTextColor"
-                    android:inputType="textEmailAddress" />
-                <EditText
-                    android:id="@+id/edtConfigSenha"
-                    android:layout_below="@+id/edtConfigEmail"
-                    android:layout_width="262dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/inserirSenha"
-                    android:drawableStart="@drawable/ic_vpn_key_black_24dp"
-                    android:drawableTint="@color/menuTextColor"
-                    android:drawablePadding="15dp"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/menuTextColor"
-                    android:textColorHint="@color/menuTextColor"
-                    android:backgroundTint="@color/menuTextColor"
-                    android:inputType="textPassword" />
-                <LinearLayout
+                <ImageButton
+                    android:id="@+id/configImgBtnBack"
+                    android:layout_width="30dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentRight="true"
                     android:layout_marginTop="20dp"
-                    android:id="@+id/configLinkGroup"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/edtConfigSenha"
+                    android:layout_marginEnd="50dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_undo_variant"
+                    android:tint="@color/menuTextColor" />
+
+                <TextView
+                    android:id="@+id/configTitleApp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <Button
-                        android:id="@+id/configBtnSalvar"
-                        android:layout_marginTop="20dp"
-                        android:layout_width="268dp"
-                        android:layout_height="40dp"
-                        android:backgroundTint="@color/menuTextColor"
-                        android:textColor="@color/pureWhite"
-                        android:background="@drawable/button_round"
-                        android:text="@string/salvar"
-                        android:layout_marginBottom="20dp"
-                        />
-                </LinearLayout>
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/uppCaseAppname"
+                    android:textColor="@color/menuTextColor"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/configBtnMenu"
+                    android:layout_width="30dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="50dp"
+                    android:background="@android:color/transparent"
+                    android:tint="@color/menuTextColor"
+                    android:src="@drawable/ic_menu"/>
 
             </RelativeLayout>
 
-        </ScrollView>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/configNavigationbar"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+
+                    android:id="@+id/configProfilepic"
+                    android:layout_width="93dp"
+                    android:layout_height="96dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/img_shape"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_harris" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/configProfilepic"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/configProfilename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/nomeGenerico"
+                        android:textColor="@color/menuTextColor"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/configTvDataSigno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/signoDataGenericos"
+                        android:textColor="@color/menuTextColor"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/configTopBar">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/account_fragment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-</RelativeLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"/>
+
+</android.support.v4.widget.DrawerLayout>
