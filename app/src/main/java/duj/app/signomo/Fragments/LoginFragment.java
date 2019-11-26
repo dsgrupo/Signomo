@@ -65,21 +65,19 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Tex
         myBtnLogin.setOnClickListener(this);
 
 
+        myLinkTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Clicou");
 
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
-//        myLinkTxt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                System.out.println("Clicou");
-//
-//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//
-//                transaction.replace(R.id.fragment_container, new RegisterFragment());
-//                transaction.addToBackStack(null);
-//
-//                transaction.commit();
-//            }
-//        });
+                transaction.replace(R.id.fragment_container, new RegisterFragment());
+                transaction.addToBackStack(null);
+
+                transaction.commit();
+            }
+        });
     }
 
     @Override
@@ -124,10 +122,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Tex
 
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {
-                Toast.makeText(getContext(), "Houve um erro no login, por favor tente novamente.", Toast.LENGTH_LONG)
-                        .show();
-//                myTv.setVisibility(View.VISIBLE);
-//                Log.d("Message", t.getMessage());
+//                Toast.makeText(getContext(), "Houve um erro no login, por favor tente novamente.", Toast.LENGTH_LONG)
+//                        .show();
+                myTv.setVisibility(View.VISIBLE);
+                Log.d("Message", t.getMessage());
             }
         });
     }

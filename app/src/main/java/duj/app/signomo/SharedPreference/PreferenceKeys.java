@@ -9,5 +9,8 @@ public class PreferenceKeys {
     public static String KEY_SENHA = "senha";
     public static String KEY_SIGNO = "signo";
     public static String KEY_IMAGEM = "imagem";
+    public static String KEY_AVDESC = "descricao";
+    public static String KEY_AVNOTA = "nota";
+
 
 }

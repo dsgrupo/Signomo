@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +22,20 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import duj.app.signomo.Models.Usuario;
 import duj.app.signomo.R;
+import duj.app.signomo.Retrofit.RetrofitConfig;
+import duj.app.signomo.Retrofit.model.LoginDetails;
+import duj.app.signomo.Retrofit.model.RegistrationDetails;
 import duj.app.signomo.SharedPreference.PreferenceUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterFragment extends Fragment {
     private EditText edtEscolherHora;
     private TimePickerDialog timePickerDialog;
+    EditText myDatePicker;
     private EditText edtNome;
     private EditText edtEmail;
     private EditText edtSenha;
@@ -42,7 +51,8 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final EditText myDatePicker = (EditText) view.findViewById(R.id.registerDatePicker);
+//        final EditText myDatePicker = (EditText) view.findViewById(R.id.registerDatePicker);
+        myDatePicker = (EditText) view.findViewById(R.id.registerDatePicker);
         edtEscolherHora = view.findViewById(R.id.registerTimePicker);
         edtNome = (EditText)view.findViewById(R.id.edtRegisterNome);
         edtEmail = (EditText)view.findViewById(R.id.edtRegisterEmail);
@@ -61,10 +71,11 @@ public class RegisterFragment extends Fragment {
                 edtSenha.getText().toString().equals("")||edtConfirmSenha.getText().toString().equals("")){
                     Toast.makeText(v.getContext(),"Preencha todos os campos.", Toast.LENGTH_SHORT).show();
                 }else{
-                    PreferenceUtils.saveNome(edtNome.getText().toString().trim(),v.getContext());
-                    PreferenceUtils.saveEmail(edtEmail.getText().toString().trim(),v.getContext());
-                    PreferenceUtils.saveSenha(edtSenha.getText().toString().trim(),v.getContext());
-                    PreferenceUtils.saveNasc(myDatePicker.getText().toString().trim(),v.getContext());
+//                    PreferenceUtils.saveNome(edtNome.getText().toString().trim(),v.getContext());
+//                    PreferenceUtils.saveEmail(edtEmail.getText().toString().trim(),v.getContext());
+//                    PreferenceUtils.saveSenha(edtSenha.getText().toString().trim(),v.getContext());
+//                    PreferenceUtils.saveNasc(myDatePicker.getText().toString().trim(),v.getContext());
+                    submitRegisterInfo();
                     edtEmail.setText("");
                     edtNome.setText("");
                     edtSenha.setText("");
@@ -131,4 +142,26 @@ public class RegisterFragment extends Fragment {
             }
         };
     }
+
+    private void submitRegisterInfo() {
+        String name = edtNome.getText().toString();
+        String email = edtEmail.getText().toString();
+        String password = edtSenha.getText().toString();
+        String birthDate = myDatePicker.getText().toString();
+        String birthTime = edtEscolherHora.getText().toString();
+
+        Call<Usuario> call = new RetrofitConfig().getUsuarioService().register(new RegistrationDetails(name,email,password,birthDate,birthTime));
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                Log.w("Cadastrado com Sucesso", "Com Sucesso");
+            }
+
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                Log.w("Falhou", "Com Falha");
+            }
+        });
+    }
+
 }

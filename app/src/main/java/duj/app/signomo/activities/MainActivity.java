@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -16,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -28,10 +31,16 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import duj.app.signomo.Models.Avaliacao;
 import duj.app.signomo.R;
+import duj.app.signomo.Retrofit.RetrofitConfig;
+import duj.app.signomo.Retrofit.model.ReviewDetails;
 import duj.app.signomo.SharedPreference.PreferenceUtils;
 import duj.app.signomo.utils.MyPageAdapter;
 import duj.app.signomo.utils.Model;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,6 +75,20 @@ public class MainActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         tvData1.setText(""+cal.get(Calendar.DAY_OF_MONTH));
         tvData2.setText(""+cal.get(Calendar.DAY_OF_MONTH));
+
+        if(PreferenceUtils.getAVNOTA(getApplicationContext())!=null){
+            if(PreferenceUtils.getAVNOTA(getApplicationContext()).equals("nota")){
+
+            }else{
+                if(Integer.parseInt(PreferenceUtils.getAVNOTA(getApplicationContext()))>0){
+                        Avaliacao reviewLater = new Avaliacao(PreferenceUtils.getId(getApplicationContext()),PreferenceUtils.getAVDESC(getApplicationContext()),PreferenceUtils.getAVNOTA(getApplicationContext()));
+                        atualizarWebService(reviewLater);
+                        PreferenceUtils.saveAVDESC("descricao",getApplicationContext());
+                        PreferenceUtils.saveAVNOTA("nota", getApplicationContext());
+                }
+            }
+        }
+
 
 
         if (PreferenceUtils.getNome(this) != null && PreferenceUtils.getNasc(this)!=null){
@@ -270,6 +293,34 @@ public class MainActivity extends AppCompatActivity {
 
         return idade;
     }
+
+    private void atualizarWebService(Avaliacao review) {
+        String userId = PreferenceUtils.getId(this);
+        Toast.makeText(this, userId, Toast.LENGTH_SHORT).show();
+        Call<Avaliacao> call = new RetrofitConfig().getAvaliacaoService().saveOne(userId, new ReviewDetails(review.getDescription(),review.getRating()));
+
+        call.enqueue(new Callback<Avaliacao>() {
+            @Override
+            public void onResponse(Call<Avaliacao> call, Response<Avaliacao> response) {
+                Avaliacao reviewDetails = response.body();
+                if (reviewDetails == null || reviewDetails.getId() == null) {
+                    Toast.makeText(getApplicationContext(), "Avaliação enviada !", Toast.LENGTH_LONG)
+                            .show();
+                }else{
+
+//                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+//                    startActivity(i);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Avaliacao> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(), "Houve um erro no envio da avaliação.", Toast.LENGTH_LONG)
+//                        .show();
+            }
+        });
+    }
+    public boolean verificaConexao() { boolean conectado; ConnectivityManager conectivtyManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE); if (conectivtyManager.getActiveNetworkInfo() != null && conectivtyManager.getActiveNetworkInfo().isAvailable() && conectivtyManager.getActiveNetworkInfo().isConnected()) { conectado = true; } else { conectado = false; } return conectado; }
 
     public static void calcularSigno(String nasc, Context ctx){
         String signo=nasc;
