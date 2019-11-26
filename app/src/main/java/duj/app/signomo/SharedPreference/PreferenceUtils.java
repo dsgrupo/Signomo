@@ -113,4 +113,30 @@ public class PreferenceUtils {
         return prefs.getString(PreferenceKeys.KEY_IMAGEM, null);
     }
 
+    public static boolean saveAVDESC(String avdec, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(PreferenceKeys.KEY_AVDESC, avdec);
+        prefsEditor.apply();
+        return true;
+    }
+
+    public static String getAVDESC(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(PreferenceKeys.KEY_AVDESC, null);
+    }
+
+    public static boolean saveAVNOTA(String avnota, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(PreferenceKeys.KEY_AVNOTA, avnota);
+        prefsEditor.apply();
+        return true;
+    }
+
+    public static String getAVNOTA(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(PreferenceKeys.KEY_AVNOTA, null);
+    }
+
 }

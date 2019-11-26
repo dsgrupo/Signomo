@@ -1,8 +1,11 @@
 package duj.app.signomo.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,10 +47,11 @@ public class InserirAvaliacaoActivity extends AppCompatActivity {
 
                 avaliacaoSelecionada = new Avaliacao(id, descricao, nota);
                 resultado = crud.insereDado(avaliacaoSelecionada);
-
                 atualizarWebService(avaliacaoSelecionada);
 
-                Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+
+
+                //Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
 
                 Intent i = new Intent(InserirAvaliacaoActivity.this, MainActivity.class);
                 startActivity(i);
@@ -77,10 +81,11 @@ public class InserirAvaliacaoActivity extends AppCompatActivity {
             public void onResponse(Call<Avaliacao> call, Response<Avaliacao> response) {
                 Avaliacao reviewDetails = response.body();
                 if (reviewDetails == null || reviewDetails.getId() == null) {
-                    Toast.makeText(getApplicationContext(), "Houve um erro no envio da avaliação", Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Avaliação a ser enviada !", Toast.LENGTH_LONG)
                             .show();
                 }else{
-
+                    Toast.makeText(getApplicationContext(), "Avaliação enviada com sucesso !", Toast.LENGTH_LONG)
+                            .show();
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                 }
@@ -88,9 +93,12 @@ public class InserirAvaliacaoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Avaliacao> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Houve um erro no envio da avaliação.", Toast.LENGTH_LONG)
+                Toast.makeText(getApplicationContext(), "Avaliação a ser enviada !", Toast.LENGTH_LONG)
                         .show();
+                PreferenceUtils.saveAVDESC(descricao.getText().toString(),getApplicationContext());
+                PreferenceUtils.saveAVNOTA(nota.getText().toString(), getApplicationContext());
             }
         });
     }
+    public boolean verificaConexao() { boolean conectado; ConnectivityManager conectivtyManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE); if (conectivtyManager.getActiveNetworkInfo() != null && conectivtyManager.getActiveNetworkInfo().isAvailable() && conectivtyManager.getActiveNetworkInfo().isConnected()) { conectado = true; } else { conectado = false; } return conectado; }
 }
