@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edtNota"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/menuTextColor"
+        android:drawableStart="@drawable/ic_star"
+        android:drawablePadding="15dp"
+        android:drawableTint="@color/menuTextColor"
+        android:hint="Sua nota"
+        android:inputType="numberSigned"
+        android:textColor="@color/menuTextColor"
+        android:textColorHint="@color/menuTextColor" />
+
+    <EditText
+        android:id="@+id/edtDescricao"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtNota"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/menuTextColor"
+        android:drawableLeft="@drawable/ic_review"
+        android:drawablePadding="15dp"
+        android:drawableTint="@color/menuTextColor"
+        android:hint="Descrição da avaliação"
+        android:inputType="text"
+        android:textColor="@color/menuTextColor"
+        android:textColorHint="@color/menuTextColor"
+        android:textSize="17dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtDescricao"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnEnviarAvaliacao"
+            android:layout_width="268dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_round"
+            android:backgroundTint="@color/menuTextColor"
+            android:text="Enviar avaliação"
+            android:textColor="@color/pureWhite" />
+    </LinearLayout>
+
+</RelativeLayout>

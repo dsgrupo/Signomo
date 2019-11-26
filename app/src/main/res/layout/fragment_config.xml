@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edtConfigNome"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/menuTextColor"
+        android:drawableStart="@drawable/ic_email_24dp"
+        android:drawablePadding="15dp"
+        android:drawableTint="@color/menuTextColor"
+        android:hint="@string/inserirNome"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/menuTextColor"
+        android:textColorHint="@color/menuTextColor" />
+
+    <EditText
+        android:id="@+id/configDatePicker"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtConfigNome"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/menuTextColor"
+        android:drawableLeft="@drawable/ic_calendar_24dp"
+        android:drawablePadding="15dp"
+        android:drawableTint="@color/menuTextColor"
+        android:editable="false"
+        android:hint="@string/configDataNasc"
+        android:textColor="@color/menuTextColor"
+        android:textColorHint="@color/menuTextColor"
+        android:textSize="17dp" />
+
+    <EditText
+        android:id="@+id/edtConfigEmail"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/configDatePicker"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/menuTextColor"
+        android:drawableStart="@drawable/ic_email_24dp"
+        android:drawablePadding="15dp"
+        android:drawableTint="@color/menuTextColor"
+        android:hint="@string/inserirEmail"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/menuTextColor"
+        android:textColorHint="@color/menuTextColor" />
+
+    <EditText
+        android:id="@+id/edtConfigSenha"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtConfigEmail"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/menuTextColor"
+        android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+        android:drawablePadding="15dp"
+        android:drawableTint="@color/menuTextColor"
+        android:hint="@string/inserirSenha"
+        android:inputType="textPassword"
+        android:textColor="@color/menuTextColor"
+        android:textColorHint="@color/menuTextColor" />
+
+    <LinearLayout
+        android:id="@+id/configLinkGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtConfigSenha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/configBtnSalvar"
+            android:layout_width="268dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_round"
+            android:backgroundTint="@color/menuTextColor"
+            android:text="@string/salvar"
+            android:textColor="@color/pureWhite" />
+    </LinearLayout>
+
+</RelativeLayout>

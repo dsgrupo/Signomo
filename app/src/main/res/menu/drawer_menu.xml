@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:title="Mais...">
+            <menu>
+                <item
+                    android:id="@+id/nav_config"
+                    android:icon="@drawable/ic_settings"
+                    android:title="Configurações" />
+                <item
+                    android:id="@+id/nav_review"
+                    android:icon="@drawable/ic_review"
+                    android:title="Avaliar o Signomo" />
+            </menu>
+        </item>
+    </group>
+</menu>
