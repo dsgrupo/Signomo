@@ -16,6 +16,7 @@ import java.util.List;
 
 import duj.app.signomo.R;
 import duj.app.signomo.SharedPreference.PreferenceUtils;
+import duj.app.signomo.activities.AvaliacaoActivity;
 import duj.app.signomo.activities.ConfigActivity;
 import duj.app.signomo.activities.DefinicaoSignoActiviy;
 import duj.app.signomo.activities.MapaAstralActivity;
@@ -92,6 +93,11 @@ public class MyPageAdapter extends PagerAdapter {
                         break;
                     case 3:
                         i = new Intent(v.getContext(), ConfigActivity.class);
+                        v.getContext().startActivity(i);
+                        break;
+
+                    case 4:
+                        i = new Intent(v.getContext(), AvaliacaoActivity.class);
                         v.getContext().startActivity(i);
                         break;
                 }

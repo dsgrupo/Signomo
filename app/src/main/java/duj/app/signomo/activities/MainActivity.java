@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -33,6 +36,8 @@ import duj.app.signomo.utils.Model;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ListView lista;
+    private Button inserir;
     ViewPager viewPager;
     MyPageAdapter myPageAdapter;
     List<Model> models;
@@ -63,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         tvData1.setText(""+cal.get(Calendar.DAY_OF_MONTH));
         tvData2.setText(""+cal.get(Calendar.DAY_OF_MONTH));
 
+
         if (PreferenceUtils.getNome(this) != null && PreferenceUtils.getNasc(this)!=null){
             tvProfileName.setText(PreferenceUtils.getNome(this));
             String signoSalvo = PreferenceUtils.getSigno(this);
@@ -92,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         models.add(new Model(R.drawable.itembg,"Definição","Clique para conhecer as definições do seu signo."));
         models.add(new Model(R.drawable.itembg,"Ascendência","Clique para ver sua ascendência."));
         models.add(new Model(R.drawable.itembg,"Configurações","Clique para editar suas configurações."));
+        models.add(new Model(R.drawable.itembg,"Avaliação","Clique para adicionar ou alterar uma avaliação."));
 
         myPageAdapter = new MyPageAdapter(models, this);
 
