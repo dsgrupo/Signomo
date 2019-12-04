@@ -1,4 +1,4 @@
-package duj.app.signomo.activities;
+package com.example.alunosqlite.telas;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,33 +8,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
-import duj.app.signomo.DAOS.AvaliacaoDAO;
-import duj.app.signomo.Models.Avaliacao;
-import duj.app.signomo.R;
-import duj.app.signomo.utils.ConexaoUtil;
+import com.example.alunosqlite.R;
+import com.example.alunosqlite.daos.AlunoDAO;
+import com.example.alunosqlite.util.ConexaoUtil;
 
-public class AvaliacaoActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private ListView lista;
     private Button inserir;
-    private ImageButton myBackBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_avaliacao);
-
-        AvaliacaoDAO crud = new AvaliacaoDAO(getBaseContext());
+        setContentView(R.layout.activity_main);
+        AlunoDAO crud = new AlunoDAO(getBaseContext());
         final Cursor cursor = crud.carregaDados();
 
         String[] nomeCampos = new String[]
-                {ConexaoUtil.ID, ConexaoUtil.USUARIO};
-        int[] idViews = new int[] {R.id.idAvaliacao, R.id.nomeAvaliacao};
+                {ConexaoUtil.ID, ConexaoUtil.CPF};
+        int[] idViews = new int[] {R.id.idAluno, R.id.nomeAluno};
 
         SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(),
-                R.layout.avalicao_layout,cursor,nomeCampos,idViews, 0);
+                R.layout.aluno_layout,cursor,nomeCampos,idViews, 0);
         lista = (ListView)findViewById(R.id.listView);
         lista.setAdapter(adaptador);
 
@@ -44,7 +40,7 @@ public class AvaliacaoActivity extends AppCompatActivity {
                 String codigo;
                 cursor.moveToPosition(position);
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(ConexaoUtil.ID));
-                Intent intent = new Intent(AvaliacaoActivity.this, AlterarAvaliacaoActivity.class);
+                Intent intent = new Intent(MainActivity.this, AlterarAluno.class);
                 intent.putExtra("codigo", codigo);
                 startActivity(intent);
                 finish();
@@ -55,19 +51,10 @@ public class AvaliacaoActivity extends AppCompatActivity {
         inserir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AvaliacaoActivity.this,InserirAvaliacaoActivity.class);
+                Intent intent = new Intent(MainActivity.this,InserirAluno.class);
                 startActivity(intent);
                 finish();
             }
         });
-
-        myBackBtn = (ImageButton) findViewById(R.id.mapImgBtnBack);
-        myBackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
     }
 }

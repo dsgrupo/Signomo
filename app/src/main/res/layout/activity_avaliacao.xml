@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     tools:context=".activities.AvaliacaoActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/Alter">
 
     <RelativeLayout
         android:id="@+id/mapTopBar"
@@ -119,14 +124,21 @@
 
         <Button
             android:id="@+id/botaoinserir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inserir"
+            android:layout_width="240dp"
+            android:layout_height="46dp"
+            android:layout_alignEnd="@+id/editText3"
+            android:layout_alignRight="@+id/editText3"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="139dp"
+            android:layout_marginLeft="300dp"
             android:layout_marginTop="400dp"
-            android:layout_marginLeft="300dp"/>
+            android:text="Inserir Avaliação"
+            android:backgroundTint="@color/menuTextColor"
+            android:textColor="@color/pureWhite"
+            android:background="@drawable/button_round"/>
 
     </RelativeLayout>
-
+    
 
 
 </LinearLayout>

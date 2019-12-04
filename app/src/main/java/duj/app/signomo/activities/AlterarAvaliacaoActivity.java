@@ -17,13 +17,13 @@ public class AlterarAvaliacaoActivity extends AppCompatActivity {
     EditText usuario;
     EditText descricao;
     EditText nota;
-    EditText recommend;
     Button alterar;
     Button deletar;
     Cursor cursor;
     AvaliacaoDAO crud;
     String codigo;
     Avaliacao avaliacaoSelecionada;
+    Button cancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +34,16 @@ public class AlterarAvaliacaoActivity extends AppCompatActivity {
 
         crud = new AvaliacaoDAO(getBaseContext());
 
-        usuario = (EditText)findViewById(R.id.editText6);
-        descricao = (EditText)findViewById(R.id.editText7);
-        nota = (EditText)findViewById(R.id.editText8);
-        recommend = (EditText)findViewById(R.id.editText9);
+        usuario = (EditText)findViewById(R.id.editText4);
+        descricao = (EditText)findViewById(R.id.editText5);
+        nota = (EditText)findViewById(R.id.editText6);
+
+
 
         alterar = (Button)findViewById(R.id.button2);
 
         cursor = crud.carregaDadoById(Integer.parseInt(codigo));
-        avaliacaoSelecionada = new Avaliacao(cursor.getString(cursor.getColumnIndexOrThrow(ConexaoUtil.USUARIO)),cursor.getString(cursor.getColumnIndexOrThrow(ConexaoUtil.DESCRICAO)), cursor.getString(cursor.getColumnIndexOrThrow(ConexaoUtil.NOTA)), cursor.getString(cursor.getColumnIndexOrThrow(ConexaoUtil.RECOMMEND)), Integer.parseInt(codigo));
+        avaliacaoSelecionada = new Avaliacao(Integer.parseInt(codigo), cursor.getString(cursor.getColumnIndexOrThrow(ConexaoUtil.USUARIO)),cursor.getString(cursor.getColumnIndexOrThrow(ConexaoUtil.DESCRICAO)), cursor.getString(cursor.getColumnIndexOrThrow(ConexaoUtil.NOTA)));
         usuario.setText(avaliacaoSelecionada.getUsuario());
         descricao.setText(avaliacaoSelecionada.getDescri());
         nota.setText(avaliacaoSelecionada.getNota());
@@ -54,10 +55,19 @@ public class AlterarAvaliacaoActivity extends AppCompatActivity {
                 avaliacaoSelecionada.setUsuario(usuario.getText().toString());
                 avaliacaoSelecionada.setDescri(descricao.getText().toString());
                 avaliacaoSelecionada.setNota(nota.getText().toString());
-                avaliacaoSelecionada.setRecommend(recommend.getText().toString());
                 crud.alteraRegistro(avaliacaoSelecionada);
-                Intent intent = new Intent(AlterarAvaliacaoActivity.this,MainActivity.class);
+                Intent intent = new Intent(AlterarAvaliacaoActivity.this,AvaliacaoActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        cancelar = (Button)findViewById(R.id.button4);
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(AlterarAvaliacaoActivity.this,AvaliacaoActivity.class);
+                startActivity(i);
                 finish();
             }
         });
@@ -67,7 +77,7 @@ public class AlterarAvaliacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 crud.deletaRegistro(avaliacaoSelecionada);
-                Intent intent = new Intent(AlterarAvaliacaoActivity.this,MainActivity.class);
+                Intent intent = new Intent(AlterarAvaliacaoActivity.this,AvaliacaoActivity.class);
                 startActivity(intent);
                 finish();
             }
