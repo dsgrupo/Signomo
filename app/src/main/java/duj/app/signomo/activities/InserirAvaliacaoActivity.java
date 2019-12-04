@@ -13,7 +13,11 @@ import duj.app.signomo.Models.Avaliacao;
 import duj.app.signomo.R;
 
 public class InserirAvaliacaoActivity extends AppCompatActivity {
+    EditText usuario;
+    EditText descricao;
+    EditText nota;
     Avaliacao avaliacaoSelecionada;
+    Button cancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,26 +26,39 @@ public class InserirAvaliacaoActivity extends AppCompatActivity {
 
         Button botao = (Button)findViewById(R.id.button);
 
+
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AvaliacaoDAO crud = new AvaliacaoDAO(getBaseContext());
-                EditText usuario = (EditText)findViewById(R.id.editText);
-                EditText descricao = (EditText)findViewById((R.id.editText2));
-                EditText nota = (EditText)findViewById(R.id.editText3);
-                EditText recommend = (EditText)findViewById(R.id.editText5);
-                String usuarioString = usuario.getText().toString();
-                String descricaoString = descricao.getText().toString();
-                String notaString = nota.getText().toString();
-                String recommendString = recommend.getText().toString();
+                usuario = (EditText)findViewById(R.id.editText);
+                descricao = (EditText)findViewById(R.id.editText2);
+                nota = (EditText)findViewById(R.id.editText3);
+
+                String cpfString = usuario.getText().toString();
+                String nomeString = descricao.getText().toString();
+                String idadeString = nota.getText().toString();
                 String resultado;
-                avaliacaoSelecionada = new Avaliacao(usuarioString, descricaoString, notaString, recommendString,0);
+
+                avaliacaoSelecionada = new Avaliacao(0,cpfString,nomeString,idadeString);
                 resultado = crud.insereDado(avaliacaoSelecionada);
 
                 Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
-                Intent i;
-                i = new Intent(v.getContext(), AvaliacaoActivity.class);
-                v.getContext().startActivity(i);
+
+                Intent i=new Intent(InserirAvaliacaoActivity.this,AvaliacaoActivity.class);
+                startActivity(i);
+                finish();
+
+            }
+        });
+
+        cancelar = (Button) findViewById(R.id.button2);
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(InserirAvaliacaoActivity.this,AvaliacaoActivity.class);
+                startActivity(i);
+                finish();
             }
         });
     }

@@ -19,6 +19,7 @@ import duj.app.signomo.SharedPreference.PreferenceUtils;
 import duj.app.signomo.activities.AvaliacaoActivity;
 import duj.app.signomo.activities.ConfigActivity;
 import duj.app.signomo.activities.DefinicaoSignoActiviy;
+import duj.app.signomo.activities.InserirAvaliacaoActivity;
 import duj.app.signomo.activities.MapaAstralActivity;
 
 public class MyPageAdapter extends PagerAdapter {

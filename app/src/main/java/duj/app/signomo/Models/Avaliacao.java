@@ -7,14 +7,12 @@ public class Avaliacao implements Parcelable {
     private String usuario;
     private String descri;
     private String nota;
-    private String recommend;
     private int id;
 
-    public Avaliacao(String usuario, String descri, String nota, String recommend, int id) {
+    public Avaliacao(int id, String usuario, String descri, String nota) {
         this.usuario = usuario;
         this.descri = descri;
         this.nota = nota;
-        this.recommend = recommend;
         this.id=id;
     }
 
@@ -24,7 +22,6 @@ public class Avaliacao implements Parcelable {
         usuario = in.readString();
         descri = in.readString();
         nota = in.readString();
-        recommend = in.readString();
         id = in.readInt();
     }
 
@@ -64,13 +61,6 @@ public class Avaliacao implements Parcelable {
         this.nota = nota;
     }
 
-    public String getRecommend() {
-        return recommend;
-    }
-
-    public void setRecommend(String recommend) {
-        this.recommend = recommend;
-    }
 
     public int getId() {
         return id;
@@ -90,7 +80,6 @@ public class Avaliacao implements Parcelable {
         parcel.writeString(usuario);
         parcel.writeString(descri);
         parcel.writeString(nota);
-        parcel.writeString(recommend);
         parcel.writeInt(id);
     }
 }
