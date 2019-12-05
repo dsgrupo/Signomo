@@ -10,21 +10,34 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import duj.app.signomo.DAOS.AvaliacaoDAO;
 import duj.app.signomo.Models.Avaliacao;
 import duj.app.signomo.R;
+import duj.app.signomo.SharedPreference.PreferenceUtils;
 import duj.app.signomo.utils.ConexaoUtil;
 
 public class AvaliacaoActivity extends AppCompatActivity {
     private ListView lista;
     private Button inserir;
     private ImageButton myBackBtn;
+    private TextView tvNomeUsuario;
+    private TextView tvSignoData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avaliacao);
+
+        tvNomeUsuario = findViewById(R.id.mapProfilename);
+        tvSignoData = findViewById(R.id.mapSignoData);
+        if (PreferenceUtils.getNome(this) != null && PreferenceUtils.getNasc(this)!=null){
+            tvNomeUsuario.setText(PreferenceUtils.getNome(this));
+            String signoSalvo = PreferenceUtils.getSigno(this);
+            String dataNasc = PreferenceUtils.getNasc(this);
+            tvSignoData.setText(signoSalvo+", "+dataNasc);
+        }
 
         AvaliacaoDAO crud = new AvaliacaoDAO(getBaseContext());
         final Cursor cursor = crud.carregaDados();
